@@ -2,7 +2,7 @@
  * Created Date: 21-10-22
  * Author: Gabriel Danjon
  * -----
- * Last Modified: 21-10-22 3:28:21 pm
+ * Last Modified: 21-10-22 5:55:00 pm
  * Modified By: Gabriel Danjon
  * -----
  * Copyright (c) 2021 Da2ny's world
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 {
     CharacterController _characterController;
 
-    float moveSpeed = 0.1f;
+    float moveSpeed = 0.2f;
 
     // Start is called before the first frame update
     void Start()
