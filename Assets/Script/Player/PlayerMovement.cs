@@ -2,7 +2,7 @@
  * Created Date: 21-10-22
  * Author: Gabriel Danjon
  * -----
- * Last Modified: 21-10-22 2:56:28 pm
+ * Last Modified: 21-10-22 3:28:21 pm
  * Modified By: Gabriel Danjon
  * -----
  * Copyright (c) 2021 Da2ny's world
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 {
     CharacterController _characterController;
 
-    float speed = 0.1f;
+    float moveSpeed = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,9 +34,15 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        float xMovement = Input.GetAxis("Horizontal");
-        float zMovement = Input.GetAxis("Vertical");
+        Movement();
+    }
 
-        _characterController.Move(new Vector3(xMovement, 0f, zMovement).normalized);
+    void Movement() {
+        Vector3 direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
+
+        if (direction.magnitude >= 0.1)
+            _characterController.Move(direction * moveSpeed);
+        if (direction != Vector3.zero)
+            gameObject.transform.forward = direction;
     }
 }
