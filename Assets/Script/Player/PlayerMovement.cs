@@ -24,8 +24,12 @@ public class PlayerMovement : MonoBehaviour
     public float StartAnimTime = 0.3f;
     public float StopAnimTime = 0.15f;
 
+    float gravity = -12f;
+
     public float desiredRotationSpeed = 0.1f;
     float moveSpeed = 0.2f;
+
+    Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +40,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Gravity();
+    }
+    
+    void Gravity() {
+        velocity.y += gravity * Time.deltaTime;
+        _characterController.Move(velocity * Time.deltaTime);
     }
 
     private void FixedUpdate() {
