@@ -11,7 +11,7 @@ public class SceneManager : MonoBehaviour
     }
 
     public void SwitchGameScene() {  
-        UnitySceneManager.LoadScene("Game Scene");
+        UnitySceneManager.LoadScene("terrainV2");
     }
 
     public void SwitchSettingsScene() {  
