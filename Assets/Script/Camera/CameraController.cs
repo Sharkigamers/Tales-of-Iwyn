@@ -8,10 +8,10 @@ public class CameraController : MonoBehaviour
     public Transform target;
 
     private Dictionary<Vector3, Vector3> offset = new Dictionary<Vector3, Vector3>(){
-        {new Vector3(0f, 20f, -11f), new Vector3(60f, 0f, 0f)},
-        {new Vector3(-11f, 20f, 0), new Vector3(60f, 90f, 0f)},
-        {new Vector3(0f, 20f, 11f), new Vector3(60f, 180f, 0f)},
-        {new Vector3(11f, 20f, 0f), new Vector3(60f, -90f, 0f)},
+        {new Vector3(0f, 10f, -11f), new Vector3(40f, 0f, 0f)},
+        {new Vector3(-11f, 10f, 0), new Vector3(40f, 90f, 0f)},
+        {new Vector3(0f, 10f, 11f), new Vector3(40f, 180f, 0f)},
+        {new Vector3(11f, 10f, 0f), new Vector3(40f, -90f, 0f)},
     };
     int index = 0;
 
