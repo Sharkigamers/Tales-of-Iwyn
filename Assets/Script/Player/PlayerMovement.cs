@@ -31,10 +31,13 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
 
+    private Camera _mainCam;
+
     // Start is called before the first frame update
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
+        _mainCam = Camera.main;
     }
 
     // Update is called once per frame
@@ -53,9 +56,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Movement() {
+        Vector3 forward = new Vector3(_mainCam.transform.forward.x, 0, _mainCam.transform.forward.z);
+        Vector3 right = new Vector3(_mainCam.transform.right.x, 0, _mainCam.transform.right.z);
+
         float xMovement = Input.GetAxisRaw("Horizontal");
         float zMovement = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(xMovement, 0f, zMovement).normalized;
+
+        var direction = (right * xMovement + forward * zMovement).normalized;
         float animationSpeed = new Vector2(xMovement, zMovement).sqrMagnitude;
 
         if (direction.magnitude >= 0.1) {
