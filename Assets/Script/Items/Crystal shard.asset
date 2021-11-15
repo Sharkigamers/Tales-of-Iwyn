@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: New Item
   m_EditorClassIdentifier: 
   id: 
-  ItemName: New Item
+  ItemName: Crystal Shard
   Icon: {fileID: 0}
   MaximumStacks: 1
