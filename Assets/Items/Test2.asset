@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2eed60b8ea39484ca0f669c36b2264b, type: 3}
-  m_Name: Test1
+  m_Name: Test2
   m_EditorClassIdentifier: 
-  id: 0
-  ItemName: Test
-  Icon: {fileID: 21300002, guid: fd0b7189c26761e4c833b6c9734d6cd4, type: 3}
+  id: 1
+  ItemName: Test2
+  Icon: {fileID: 21300010, guid: fd0b7189c26761e4c833b6c9734d6cd4, type: 3}
   MaximumStacks: 99
