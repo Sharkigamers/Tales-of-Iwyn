@@ -24,6 +24,9 @@ public class EnemyController : MonoBehaviour
     public float attackRange = 10;
     public float chaseRange = 20;
 
+    public int attackDamage = 20;
+
+
 
     void Awake() {
         enemyAnimator = GetComponentInChildren<Animator>();
@@ -87,6 +90,12 @@ public class EnemyController : MonoBehaviour
             if (Vector3.Distance(transform.position, patrolDestination) < 0.5f) {
                 moving = false;
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision hit) {
+        if (hit.gameObject.tag == "Player") {
+            hit.gameObject.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
     }
 

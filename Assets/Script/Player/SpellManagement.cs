@@ -7,25 +7,61 @@ public class SpellManagement : MonoBehaviour
     public GameObject FireBallPrefab;
     public ParticleSystem Heal;
     public float FirePower;
+    public Animator _playerAnimator;
+    public float castCooldown = 2.5f;
+    public bool cast = false;
 
     private Transform playerPosition;
+    private float manaRegenTimer = 0f;
+    public float delayAmount = 1f;
 
     void Awake() {
         playerPosition =  GameObject.Find("Player").GetComponent<Transform>();
+        PlayerPrefs.SetInt("Mana", 100);
     }
-
+        
     void Update()
     {
+        manaRegenTimer += Time.deltaTime;
+    
+        if (manaRegenTimer >= delayAmount)  {
+            manaRegenTimer = 0f;
+            PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") + 2);
+        }
+
+        if (cast) {
+            castCooldown -= Time.deltaTime;
+        }
+        if (castCooldown <= 0) {
+            cast = false;
+            castCooldown = 2.5f;
+        }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Heal.Play();
+            if (PlayerPrefs.GetInt("Mana") >= 25) {
+                if (!cast) {
+                    cast = true;
+                    PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 25);
+                    Heal.Play();
+                    _playerAnimator.SetBool("Cast", true);
+                    _playerAnimator.Play("attack01");
+                    PlayerPrefs.SetInt("Health", PlayerPrefs.GetInt("Health") + 20);
+                }
+            }
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            for (int i=0; i< Inventory.instance.items.Count; i++) {
-                if (Inventory.instance.items[i].ItemName == "Crystal Shard") {
-                    // Yes
-                    CastFireBall();
+                for (int i=0; i< Inventory.instance.items.Count; i++) {
+                    if (Inventory.instance.items[i].ItemName == "Crystal Shard") {
+                        if (PlayerPrefs.GetInt("Mana") >= 30) {
+                            if (!cast) {
+                                cast = true;
+                                PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 30);
+                                CastFireBall();
+                                _playerAnimator.SetBool("Cast", true);
+                                _playerAnimator.Play("attack01");
+                            }
+                        }
                     break; //don't need to check the remaining ones now that we found one
                 }
             }
