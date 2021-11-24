@@ -44,6 +44,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Gravity();
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.R)) {
+            _playerAnimator.SetBool("Cast", true);
+            _playerAnimator.Play("attack01");
+        }
     }
     
     void Gravity() {
