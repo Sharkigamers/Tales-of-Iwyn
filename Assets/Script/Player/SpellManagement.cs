@@ -26,7 +26,12 @@ public class SpellManagement : MonoBehaviour
     
         if (manaRegenTimer >= delayAmount)  {
             manaRegenTimer = 0f;
-            PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") + 2);
+            if (PlayerPrefs.GetInt("Mana") < 100) {
+                PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") + 2);
+            }
+            else if (PlayerPrefs.GetInt("Mana") == 99) {
+                PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") + 2);
+            }
         }
 
         if (cast) {
@@ -45,7 +50,12 @@ public class SpellManagement : MonoBehaviour
                     Heal.Play();
                     _playerAnimator.SetBool("Cast", true);
                     _playerAnimator.Play("attack01");
-                    PlayerPrefs.SetInt("Health", PlayerPrefs.GetInt("Health") + 20);
+                    if (PlayerPrefs.GetInt("Health") <= 80) {
+                        PlayerPrefs.SetInt("Health", PlayerPrefs.GetInt("Health") + 20);
+                    }
+                    else if (PlayerPrefs.GetInt("Health") > 80 && PlayerPrefs.GetInt("Health") <= 99) {
+                         PlayerPrefs.SetInt("Health", 100);
+                    }
                 }
             }
         }
