@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 39f4fa38771bd6a41ac79e6ae1d2b4bb, type: 2}
 --- !u!1 &73457676
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +441,10 @@ MonoBehaviour:
   FireBallPrefab: {fileID: 4556382864493805552, guid: 1b5b66fdb7c753b45bfc6e57ded5aa8d, type: 3}
   Heal: {fileID: 1835075426}
   FirePower: 10
+  _playerAnimator: {fileID: 0}
+  castCooldown: 2.5
+  cast: 0
+  delayAmount: 1
 --- !u!1001 &601398053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -798,7 +802,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1044015516
 GameObject:
@@ -943,7 +947,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1368532360
 PrefabInstance:
