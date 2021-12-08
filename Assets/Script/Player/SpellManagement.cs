@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpellManagement : MonoBehaviour
 {
     public GameObject FireBallPrefab;
+    public GameObject WaterBallPrefab;
     public ParticleSystem Heal;
     public float FirePower;
     public Animator _playerAnimator;
@@ -75,12 +76,34 @@ public class SpellManagement : MonoBehaviour
                     break; //don't need to check the remaining ones now that we found one
                 }
             }
-        }        
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            for (int i=0; i< Inventory.instance.items.Count; i++) {
+                if (Inventory.instance.items[i].ItemName == "Crystal Shard Water") {
+                    if (PlayerPrefs.GetInt("Mana") >= 30) {
+                        if (!cast) {
+                            cast = true;
+                            PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 30);
+                            CastWaterBall();
+                            _playerAnimator.SetBool("Cast", true);
+                            _playerAnimator.Play("attack01");
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private void CastFireBall() {
         Vector3 fireBallPos = new Vector3(playerPosition.position.x, (playerPosition.position.y + 1), playerPosition.position.z);
         GameObject FireBall = Instantiate(FireBallPrefab, fireBallPos, Quaternion.identity);
         FireBall.GetComponent<Rigidbody>().velocity = playerPosition.TransformDirection(Vector3.forward * FirePower);
+    }
+
+    private void CastWaterBall() {
+        Vector3 waterBallPos = new Vector3(playerPosition.position.x, (playerPosition.position.y + 1), playerPosition.position.z);
+        GameObject WaterBall = Instantiate(WaterBallPrefab, waterBallPos, Quaternion.identity);
+        WaterBall.GetComponent<Rigidbody>().velocity = playerPosition.TransformDirection(Vector3.forward * FirePower);
     }
 }
