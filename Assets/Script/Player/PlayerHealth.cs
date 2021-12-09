@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
+
 
 public class PlayerHealth : MonoBehaviour
 {
     public Animator _playerAnimator;
     public float hitCooldown = 2.5f;
     public bool hit = false;
+    [SerializeField] GameObject deathMenu;
 
     void Start() {
         PlayerPrefs.SetInt("Health", 100);
@@ -32,7 +37,8 @@ public class PlayerHealth : MonoBehaviour
 
             if (PlayerPrefs.GetInt("Health") <= 0) {
                 _playerAnimator.Play("die");
-                //DED
+                    deathMenu.SetActive(true);
+                    Time.timeScale = 0f;
             }
         }
     }
