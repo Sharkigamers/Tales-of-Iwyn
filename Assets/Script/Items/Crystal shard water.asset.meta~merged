@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Script/Items/Crystal shard water.asset.meta
+guid: 7acf5917e7b36654d9f74f66e79db65c
+=======
+guid: 65af007e1de139149a4fae96b7e9f3fd
+>>>>>>> dev:Assets/MinimapRenderTexture.renderTexture.meta
+=======
+guid: 7acf5917e7b36654d9f74f66e79db65c
+>>>>>>> dev
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
