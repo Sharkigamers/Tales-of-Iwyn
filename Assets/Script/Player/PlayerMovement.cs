@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public float StopAnimTime = 0.15f;
 
     float gravity = -12f;
+    Vector3 startPosition;
 
     public float desiredRotationSpeed = 0.1f;
     float moveSpeed = 0.2f;
@@ -38,6 +39,10 @@ public class PlayerMovement : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         _mainCam = Camera.main;
+        startPosition = transform.position;
+        PlayerPrefs.SetFloat("positionX", startPosition.x);
+        PlayerPrefs.SetFloat("positionY", startPosition.y);
+        PlayerPrefs.SetFloat("positionZ", startPosition.z);
     }
 
     // Update is called once per frame

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/terrainV2.unity
     guid: e5ffd7aee54f9ef40822c35441707953
+  - enabled: 1
+    path: Assets/Scenes/Death Scene.unity
+    guid: b0392bc9340356d43b2834f1455f8061
   m_configObjects: {}
