@@ -11,7 +11,7 @@ public class Item : ScriptableObject
             return id;
         }
     }
-	new public string ItemName = "New Item";
+	public string ItemName = "New Item";
 	public Sprite Icon = null;
 
 	[Range(1,999)]
