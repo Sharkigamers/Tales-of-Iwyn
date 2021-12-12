@@ -23,9 +23,9 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("right"))
+        if (Input.GetKeyDown("k"))
             index -= 1;
-        else if (Input.GetKeyDown("left"))
+        else if (Input.GetKeyDown("j"))
             index += 1;
         if (index > offset.Count - 1)
             index = 0;

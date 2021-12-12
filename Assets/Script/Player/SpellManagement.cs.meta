@@ -3,7 +3,11 @@ guid: 0d5221d08cd348f49b533bf06553d220
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - FireBallPrefab: {fileID: 6716837794170300660, guid: ce3c6e549e6e58849b7b0f9f9718bbb7, type: 3}
+  - WaterBallPrefab: {fileID: 6716837794170300660, guid: 5f58649620249b740aab082c1560df0b, type: 3}
+  - Heal: {instanceID: 0}
+  - _playerAnimator: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
