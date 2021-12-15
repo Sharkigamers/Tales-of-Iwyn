@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,10 @@ public class Inventory : MonoBehaviour
     public OnItemChanged onItemChangedCallback;
 
     public static Inventory instance;
+
+    public GameObject FireSpell;
+    public GameObject WaterSpell;
+    public GameObject HealSpell;
     
     //TODO SPACE AND STACK
     
@@ -30,6 +35,16 @@ public class Inventory : MonoBehaviour
     public void Add(Item item)
     {
         items.Add(item);
+
+        if (item.ItemName == "Crystal Shard")
+        {
+            FireSpell.SetActive(false);
+        } else if (item.ItemName == "Crystal Shard Water")
+        {
+            WaterSpell.SetActive(false);
+        } else if (item.ItemName == "Crystal Shard Nature") {
+            HealSpell.SetActive(false);
+        }
 
         if (onItemChangedCallback != null)
         {

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CooldownManagement : MonoBehaviour
 {
     public Image cooldownImage;
-    public float coolDown = 2.5f;
+    public static float coolDown = 1.2f;
     public bool isCoolDown = false;
 
     void Start() {

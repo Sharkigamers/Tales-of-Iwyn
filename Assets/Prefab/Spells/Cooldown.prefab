@@ -89,5 +89,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownImage: {fileID: 9171912935544577457}
-  coolDown: 2.5
+  coolDown: 1.2
   isCoolDown: 0

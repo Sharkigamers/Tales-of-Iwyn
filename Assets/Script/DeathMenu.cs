@@ -16,7 +16,7 @@ public class DeathMenu : MonoBehaviour
         Debug.Log(respawn);
         Debug.Log(player.transform.position);
         player.transform.position = respawn;
-        PlayerPrefs.SetInt("Health", 100);
+        PlayerPrefs.SetFloat("Health", 100);
         _playerAnimator.Play("attack01");
         deathMenu.SetActive(false);
         Time.timeScale = 1f;

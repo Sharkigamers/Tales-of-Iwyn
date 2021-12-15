@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject deathMenu;
 
     void Start() {
-        PlayerPrefs.SetInt("Health", 100);
+        PlayerPrefs.SetFloat("Health", 100);
     }
 
     void Update() {
@@ -30,12 +30,12 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage) {
         if (!hit) {
             hit = true;
-            PlayerPrefs.SetInt("Health", PlayerPrefs.GetInt("Health") - damage);
+            PlayerPrefs.SetFloat("Health", PlayerPrefs.GetFloat("Health") - damage);
 
             _playerAnimator.SetBool("Damage", true);
             _playerAnimator.Play("GetHit");
 
-            if (PlayerPrefs.GetInt("Health") <= 0) {
+            if (PlayerPrefs.GetFloat("Health") <= 0) {
                 _playerAnimator.Play("die");
                     deathMenu.SetActive(true);
                     Time.timeScale = 0f;

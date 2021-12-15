@@ -9,16 +9,17 @@ public class SpellManagement : MonoBehaviour
     public ParticleSystem Heal;
     public float FirePower;
     public Animator _playerAnimator;
-    public float castCooldown = 2.5f;
     public bool cast = false;
 
     private Transform playerPosition;
     private float manaRegenTimer = 0f;
     public float delayAmount = 1f;
 
+    private float effectiveCooldown = 0f;
     void Awake() {
         playerPosition =  GameObject.Find("Player").GetComponent<Transform>();
-        PlayerPrefs.SetInt("Mana", 100);
+        PlayerPrefs.SetFloat("Mana", 250);
+        effectiveCooldown = CooldownManagement.coolDown;
     }
         
     void Update()
@@ -27,36 +28,46 @@ public class SpellManagement : MonoBehaviour
     
         if (manaRegenTimer >= delayAmount)  {
             manaRegenTimer = 0f;
-            if (PlayerPrefs.GetInt("Mana") < 100) {
-                PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") + 2);
+            if (PlayerPrefs.GetFloat("Mana") < 250) {
+                PlayerPrefs.SetFloat("Mana", PlayerPrefs.GetFloat("Mana") + 5);
             }
-            else if (PlayerPrefs.GetInt("Mana") == 99) {
-                PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") + 2);
+            else if (PlayerPrefs.GetFloat("Mana") == 244) {
+                PlayerPrefs.SetFloat("Mana", PlayerPrefs.GetFloat("Mana") + 5);
             }
         }
 
         if (cast) {
-            castCooldown -= Time.deltaTime;
+            effectiveCooldown -= Time.deltaTime;
         }
-        if (castCooldown <= 0) {
+        if (effectiveCooldown <= 0) {
             cast = false;
-            castCooldown = 2.5f;
+            effectiveCooldown = CooldownManagement.coolDown;
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (PlayerPrefs.GetInt("Mana") >= 25) {
-                if (!cast) {
-                    cast = true;
-                    DisplayCoolDown(GameObject.FindGameObjectsWithTag("Cooldown"));
-                    PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 25);
-                    Heal.Play();
-                    _playerAnimator.SetBool("Cast", true);
-                    _playerAnimator.Play("attack01");
-                    if (PlayerPrefs.GetInt("Health") <= 80) {
-                        PlayerPrefs.SetInt("Health", PlayerPrefs.GetInt("Health") + 20);
-                    }
-                    else if (PlayerPrefs.GetInt("Health") > 80 && PlayerPrefs.GetInt("Health") <= 99) {
-                         PlayerPrefs.SetInt("Health", 100);
+            for (int i = 0; i < Inventory.instance.items.Count; i++)
+            {
+                if (Inventory.instance.items[i].ItemName == "Crystal Shard Nature")
+                {
+                    if (PlayerPrefs.GetFloat("Mana") >= 25)
+                    {
+                        if (!cast)
+                        {
+                            cast = true;
+                            DisplayCoolDown(GameObject.FindGameObjectsWithTag("Cooldown"));
+                            PlayerPrefs.SetFloat("Mana", PlayerPrefs.GetFloat("Mana") - 25);
+                            Heal.Play();
+                            _playerAnimator.SetBool("Cast", true);
+                            _playerAnimator.Play("attack01");
+                            if (PlayerPrefs.GetFloat("Health") <= 80)
+                            {
+                                PlayerPrefs.SetFloat("Health", PlayerPrefs.GetFloat("Health") + 20);
+                            }
+                            else if (PlayerPrefs.GetFloat("Health") > 80 && PlayerPrefs.GetFloat("Health") <= 99)
+                            {
+                                PlayerPrefs.SetFloat("Health", 100);
+                            }
+                        }
                     }
                 }
             }
@@ -65,11 +76,11 @@ public class SpellManagement : MonoBehaviour
         {
                 for (int i=0; i< Inventory.instance.items.Count; i++) {
                     if (Inventory.instance.items[i].ItemName == "Crystal Shard") {
-                        if (PlayerPrefs.GetInt("Mana") >= 30) {
+                        if (PlayerPrefs.GetFloat("Mana") >= 30) {
                             if (!cast) {
                                 cast = true;
                                 DisplayCoolDown(GameObject.FindGameObjectsWithTag("Cooldown"));
-                                PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 30);
+                                PlayerPrefs.SetFloat("Mana", PlayerPrefs.GetFloat("Mana") - 30);
                                 CastFireBall();
                                 _playerAnimator.SetBool("Cast", true);
                                 _playerAnimator.Play("attack01");
@@ -83,11 +94,11 @@ public class SpellManagement : MonoBehaviour
         {
             for (int i=0; i< Inventory.instance.items.Count; i++) {
                 if (Inventory.instance.items[i].ItemName == "Crystal Shard Water") {
-                    if (PlayerPrefs.GetInt("Mana") >= 30) {
+                    if (PlayerPrefs.GetFloat("Mana") >= 30) {
                         if (!cast) {
                             cast = true;
                             DisplayCoolDown(GameObject.FindGameObjectsWithTag("Cooldown"));
-                            PlayerPrefs.SetInt("Mana", PlayerPrefs.GetInt("Mana") - 30);
+                            PlayerPrefs.SetFloat("Mana", PlayerPrefs.GetFloat("Mana") - 30);
                             CastWaterBall();
                             _playerAnimator.SetBool("Cast", true);
                             _playerAnimator.Play("attack01");

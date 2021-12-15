@@ -10,7 +10,7 @@ public class BarManager : MonoBehaviour
  
     void Update()
     {
-        healthBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, PlayerPrefs.GetInt("Health") * 2);
-        manaBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, PlayerPrefs.GetInt("Mana") * 2);        
+        healthBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, PlayerPrefs.GetFloat("Health") * 2);
+        manaBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, PlayerPrefs.GetFloat("Mana") / 1.25f);        
     }
 }
