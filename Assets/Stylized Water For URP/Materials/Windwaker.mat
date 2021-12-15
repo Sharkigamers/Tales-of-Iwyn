@@ -49,15 +49,15 @@ Material:
     - _IntersectionFoamMovement: {r: 0, g: 0, b: 0, a: 0}
     - _IntersectionFoamSampling: {r: 1, g: 0, b: 0, a: 0}
     - _NormalsMovement: {r: 0.04, g: 0.36, b: 0, a: 0}
-    - _ShoreColor: {r: 0, g: 0.98039216, b: 0.3019083, a: 0}
+    - _ShoreColor: {r: 0, g: 0.98039216, b: 0.30184102, a: 0}
     - _SurfaceFoamColor1: {r: 0, g: 0, b: 0, a: 1}
-    - _SurfaceFoamColor2: {r: 0.10372274, g: 0.10225611, b: 0.10225611, a: 1}
+    - _SurfaceFoamColor2: {r: 0.103656895, g: 0.10219226, b: 0.10219226, a: 1}
     - _SurfaceFoamMovement: {r: 0.7, g: 0, b: 0.47, a: 0.01}
     - _SurfaceFoamSampling: {r: 0.62, g: 0, b: 0, a: 0}
     - _SurfaceFoamTilingAndOffset: {r: -1, g: -1, b: 0.57, a: 0.22}
-    - _WaterColorDeep: {r: 0.735849, g: 0.19134536, b: 0.04508499, a: 1}
+    - _WaterColorDeep: {r: 0.735849, g: 0.19128159, b: 0.045035377, a: 1}
     - _WaterColorHorizon: {r: 1, g: 0.010668468, b: 0, a: 1}
-    - _WaterColorShallow: {r: 0.3773069, g: 0.012583401, b: 0, a: 1}
+    - _WaterColorShallow: {r: 0.3772396, g: 0.012583401, b: 0, a: 1}
     - _WaveColor: {r: 0, g: 0, b: 0, a: 0}
     - _WaveDirections: {r: 0, g: 0.64, b: 1, a: 0.33}
     - _WaveVisuals: {r: 0.055, g: 7.9, b: 1.38, a: 0}

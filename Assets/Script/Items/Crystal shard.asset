@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   ItemName: Crystal Shard
-  icon: {fileID: 21300000, guid: 6c08308079feef646adc72c199ae86d0, type: 3}
+  icon: {fileID: 21300000, guid: e3d5a83653a807d4ebe357d2c76b3fd5, type: 3}
   MaximumStacks: 1
